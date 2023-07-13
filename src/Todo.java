@@ -3,14 +3,14 @@ public class Todo {
     private String description;
     private int priority;
 
+    // Constructeur
     public Todo(String title, String description, int priority) {
         this.title = title;
         this.description = description;
         this.priority = priority;
     }
 
-    // Getters et Setters pour les attributs
-
+    // Getters et Setters
     public String getTitle() {
         return title;
     }
