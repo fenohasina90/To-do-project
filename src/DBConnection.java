@@ -10,9 +10,9 @@ public class DBConnection {
         if (connection == null) {
             try {
                 // Remplacez les valeurs par celles de votre base de données
-                String url = "jdbc:postgresql://localhost:5432/todo";
+                String url = "jdbc:postgresql://localhost:5432/to_do_list";
                 String username = "postgres";
-                String password = "postgres";
+                String password = "12345678";
                 connection = DriverManager.getConnection(url, username, password);
                 return connection;
             } catch (SQLException e) {
