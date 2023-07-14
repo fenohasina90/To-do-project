@@ -5,7 +5,8 @@ import java.sql.SQLException;
 public class DBConnection {
     private static Connection connection;
 
-    public static Connection getConnection() {
+    public Connection getConnection() {
+
         if (connection == null) {
             try {
                 // Remplacez les valeurs par celles de votre base de données
@@ -13,11 +14,12 @@ public class DBConnection {
                 String username = "postgres";
                 String password = "postgres";
                 connection = DriverManager.getConnection(url, username, password);
+                return connection;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        return connection;
+        return null;
     }
 
 }
