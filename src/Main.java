@@ -7,6 +7,7 @@ public class Main {
         Main toDoMenu = new Main();
 
         boolean quit = false;
+
         while (!quit){
             System.out.println("===== Menu: =====");
             System.out.println("1. Add new To do");

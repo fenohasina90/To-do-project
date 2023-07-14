@@ -5,7 +5,7 @@ import java.util.List;
 public class TodoCRUD {
     private static Connection connection;
 
-    public static Connection singleton() {
+    public static Connection connectDB() {
         if (connection == null){
             DBConnection db = new DBConnection();
             connection = db.getConnection();
@@ -16,7 +16,7 @@ public class TodoCRUD {
 
     // add a todo
     public void insertToDo(int id, String title, String description, Timestamp deadline, int priority, boolean done){
-        Connection connection = singleton();
+        Connection connection = connectDB();
 
         try{
             String sql = "INSERT INTO todo VALUES (?, ?, ?, ?, ?, ?)";
@@ -45,7 +45,7 @@ public class TodoCRUD {
 
     public Todo findAnToDo(int id){
 
-        Connection connection = singleton();
+        Connection connection = connectDB();
         try {
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM todo WHERE id = "+ id +"";
@@ -71,7 +71,7 @@ public class TodoCRUD {
     // Show all todo
 
     public static List<Todo> findAllToDo(){
-        Connection connection = singleton();
+        Connection connection = connectDB();
         List<Todo> ToDoList = new ArrayList<>();
 
         try {
@@ -103,7 +103,7 @@ public class TodoCRUD {
     // update an todo by its id
 
     public Todo updateToDo(int id, String newTitle, String newDescription, Timestamp newDeadline, int newPriority, boolean newDone){
-        Connection  connection = singleton();
+        Connection  connection = connectDB();
 
         try{
             String sql = "UPDATE todo SET title = ?, description = ?, deadline = ?, priority = ?, done = ? WHERE id = ?";
@@ -128,7 +128,7 @@ public class TodoCRUD {
 
     // delete an todo by its id
     public void deleteToDo(int id){
-        Connection  connection = singleton();
+        Connection  connection = connectDB();
         try {
             String sql = "DELETE FROM todo WHERE id = ?";
 
